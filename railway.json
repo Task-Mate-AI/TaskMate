@@ -1,0 +1,15 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "nixpacksPlan": {
+      "phases": {
+        "install": {
+          "cmds": ["pip install -r backend/requirements.txt"]
+        },
+        "start": {
+          "cmds": ["uvicorn main:app --host 0.0.0.0 --port $PORT"]
+        }
+      }
+    }
+  }
+}
