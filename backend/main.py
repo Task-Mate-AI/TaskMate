@@ -4,6 +4,16 @@ from typing import List, Optional
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # <-- allows requests from anywhere
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 class EmailInput(BaseModel):
     email_thread: str
     reply_tone: Optional[str] = "friendly"
